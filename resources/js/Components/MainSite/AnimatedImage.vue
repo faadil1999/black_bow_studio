@@ -9,8 +9,6 @@
 </template>
 
 <script setup>
-import CircleNumber from "@/Partials/Main-site/CircleNumber.vue";
-
 const props = defineProps({
     details: {
         type: String,

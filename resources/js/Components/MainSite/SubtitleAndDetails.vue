@@ -13,7 +13,7 @@
 </template>
 
 <script setup>
-import CircleNumber from "@/Partials/Main-site/CircleNumber.vue";
+import CircleNumber from "@/Partials/MainSite/CircleNumber.vue";
 
 const props = defineProps({
     number: {

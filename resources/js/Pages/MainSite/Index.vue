@@ -40,7 +40,6 @@
                             />
                         </svg>
                     </div>
-
                     <div>Watch video</div>
                 </div>
 

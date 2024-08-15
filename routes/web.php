@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\MainSite\MainSiteController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
@@ -28,6 +29,10 @@ Route::get('/', function () {
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::prefix('/main-site')->name('main-site.')->controller(MainSiteController::class)->group(function() {
+    Route::get('index', 'index')->name('index');
+});
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
