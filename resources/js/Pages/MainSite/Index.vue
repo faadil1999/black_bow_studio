@@ -2,7 +2,7 @@
     <Head> </Head>
     <MainSiteLayout class="">
         <section
-            class="mx-auto text-center bg-cover bg-opacity-25 text-opacity-20"
+            class="mx-auto text-center bg-gradient-to-b from-black to-white bg-opacity-25 text-opacity-20"
         >
             <div class="flex flex-col" data-aos="fade">
                 <div class="mx-auto mt-32">
