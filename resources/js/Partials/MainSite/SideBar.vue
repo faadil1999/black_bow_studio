@@ -8,9 +8,9 @@
         class="fixed flex-shrink-0 duration-1000 overflow-hidden lg:-right-10 h-screen lg:-top-0"
         >
             <div class="flex flex-col bg-black h-screen">
-                <div class="flex flex-row my-5 px-5">
+                <div class="flex flex-row my-5 px-5 justify-between">
                     <h3 class="text-white">Navigate to </h3>
-                    <button @click="closeSideBar()">
+                    <button class="lg:mr-8" @click="closeSideBar()">
                         <XIcon class="text-white" />
                     </button>
                 </div>
