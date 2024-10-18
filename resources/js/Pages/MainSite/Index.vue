@@ -64,7 +64,10 @@
 
         <!--Who we are -->
         <section
-            class="mx-auto text-center lg:px-52 mt-10 w-full bg-theme-black-dark text-white pb-56"
+            class="mx-auto text-center lg:px-52 mt-10 w-full bg-theme-black-dark text-white pb-56 duration-700"
+            v-motion
+            :initial="{ opacity: 0, y: 100 }"
+            :visibleOnce="{ opacity: 1, y: 0 }"
         >
             <div class="grid grid-cols-2 justify-items-center">
                 <div class="col-span-2 text-left">
