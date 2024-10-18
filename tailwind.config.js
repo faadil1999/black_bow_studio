@@ -13,6 +13,8 @@ module.exports = {
         extend: {
             fontFamily: {
                 sans: ["Figtree", ...defaultTheme.fontFamily.sans],
+                montserrat: ["Montserrat"],
+                nunito: ['Nunito'],
             },
             colors: {
                 "theme-dark-blue": "#152e4d",
