@@ -7,14 +7,16 @@
             <div class="flex flex-col" data-aos="fade">
                 <div class="mx-auto mt-32">
                     <h1
-                        class="text-[65px] lg:text-[170px] text-white font-extrabold"
+                        class="text-[65px] lg:text-[100px] text-white font-extrabold font-montserrat"
                     >
                         The Black Bow studio
                     </h1>
                 </div>
 
                 <div class="mx-auto">
-                    <h3 class="text-[17px] lg:text-[37px]">
+                    <h3
+                        class="text-[17px] lg:text-[37px] font-nunito opacity-50"
+                    >
                         We build brands and beautiful experiences
                     </h3>
                 </div>
@@ -40,7 +42,7 @@
                             />
                         </svg>
                     </div>
-                    <div>Watch video</div>
+                    <div class="font-nunito font-bold">Watch video</div>
                 </div>
 
                 <div
