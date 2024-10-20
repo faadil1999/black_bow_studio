@@ -1,5 +1,17 @@
 <template>
-    <div>
+    <div
+        v-motion
+        :initial="{ opacity: 0, y: 100 }"
+        :visibleOnce="{
+            opacity: 1,
+            y: 0,
+            transition: {
+                type: 'spring',
+                stiffness: '100',
+                delay: delay,
+            },
+        }"
+    >
         <div class="flex flex-row my-5 space-x-4">
             <CircleNumber :number="number" />
             <div class="mt-2 font-bold lg:text-2xl">{{ subtitle }}</div>
@@ -27,6 +39,10 @@ const props = defineProps({
     subtitle: {
         type: String,
         default: "Define",
+    },
+    delay: {
+        type: Number,
+        default: 100,
     },
 });
 </script>

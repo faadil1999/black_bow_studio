@@ -1,6 +1,17 @@
 <template>
     <div>
         <nav
+            v-motion
+            :initial="{ opacity: 0, x: 100 }"
+            :visibleOnce="{
+                opacity: 1,
+                x: 0,
+                transition: {
+                    type: 'spring',
+                    stiffness: '100',
+                    delay: 100,
+                },
+            }"
             :class="{
                 'w-1/2': toogleSideBar,
                 'w-0': !toogleSideBar,

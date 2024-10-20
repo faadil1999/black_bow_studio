@@ -64,13 +64,23 @@
 
         <!--Who we are -->
         <section
-            class="mx-auto text-center lg:px-52 mt-10 w-full bg-theme-black-dark text-white pb-56 duration-700"
-            v-motion
-            :initial="{ opacity: 0, y: 100 }"
-            :visibleOnce="{ opacity: 1, y: 0 }"
+            class="mx-auto text-center lg:px-52 mt-10 w-full bg-theme-black-dark text-white pb-56"
         >
             <div class="grid grid-cols-2 justify-items-center">
-                <div class="col-span-2 text-left">
+                <div
+                    class="col-span-2 text-left"
+                    v-motion
+                    :initial="{ opacity: 0, x: 100 }"
+                    :visibleOnce="{
+                        opacity: 1,
+                        x: 0,
+                        transition: {
+                            type: 'spring',
+                            stiffness: '100',
+                            delay: 400,
+                        },
+                    }"
+                >
                     <div class="my-6 mt-32">
                         <h2 class="text-theme-green-fluo text-xl uppercase">
                             Who whe are
@@ -95,9 +105,9 @@
                 <div class="grid lg:grid-cols-2 col-span-2 mt-8 lg:gap-16">
                     <div class="col-span-1">
                         <SubtitleAndDetails
-                            data-aos="fade-up"
                             subtitle="Define"
                             :number="1"
+                            :delay="100"
                             details="Quos dolores saepe mollitia deserunt accusamus autem reprehenderit. Voluptas facere animi explicabo non quis magni recusandae. Numquam debitis pariatur omnis facere unde. Laboriosam minus amet nesciunt est. Et saepe eos maxime tempore quasi deserunt ab."
                         />
                     </div>
@@ -106,6 +116,7 @@
                         <SubtitleAndDetails
                             subtitle="Design"
                             :number="2"
+                            :delay="500"
                             details="Quos dolores saepe mollitia deserunt accusamus autem
                             reprehenderit. Voluptas facere animi explicabo non
                             quis magni recusandae. Numquam debitis pariatur
@@ -118,6 +129,7 @@
                         <SubtitleAndDetails
                             subtitle="Build"
                             :number="3"
+                            :delay="100"
                             details="Quos dolores saepe mollitia deserunt accusamus autem
                             reprehenderit. Voluptas facere animi explicabo non
                             quis magni recusandae. Numquam debitis pariatur
@@ -130,6 +142,7 @@
                         <SubtitleAndDetails
                             subtitle="Launch"
                             :number="4"
+                            :delay="500"
                             details="Quos dolores saepe mollitia deserunt accusamus autem
                             reprehenderit. Voluptas facere animi explicabo non
                             quis magni recusandae. Numquam debitis pariatur
@@ -174,6 +187,7 @@
                         <SubtitleAndDetails
                             subtitle="Define"
                             :number="1"
+                            :delay="100"
                             details="Quos dolores saepe mollitia deserunt accusamus autem reprehenderit. Voluptas facere animi explicabo non quis magni recusandae. Numquam debitis pariatur omnis facere unde. Laboriosam minus amet nesciunt est. Et saepe eos maxime tempore quasi deserunt ab."
                         />
                     </div>
@@ -182,6 +196,7 @@
                         <SubtitleAndDetails
                             subtitle="Design"
                             :number="2"
+                            :delay="500"
                             details="Quos dolores saepe mollitia deserunt accusamus autem
                             reprehenderit. Voluptas facere animi explicabo non
                             quis magni recusandae. Numquam debitis pariatur
@@ -194,6 +209,7 @@
                         <SubtitleAndDetails
                             subtitle="Build"
                             :number="3"
+                            :delay="100"
                             details="Quos dolores saepe mollitia deserunt accusamus autem
                             reprehenderit. Voluptas facere animi explicabo non
                             quis magni recusandae. Numquam debitis pariatur
@@ -206,6 +222,7 @@
                         <SubtitleAndDetails
                             subtitle="Launch"
                             :number="4"
+                            :delay="500"
                             details="Quos dolores saepe mollitia deserunt accusamus autem
                             reprehenderit. Voluptas facere animi explicabo non
                             quis magni recusandae. Numquam debitis pariatur
@@ -234,31 +251,90 @@
                     </p>
                 </div>
                 <div class="grid lg:grid-cols-2 col-span-2 mt-8 lg:gap-16">
-                    <div class="col-span-1">
+                    <div
+                        class="col-span-1"
+                        v-motion
+                        :initial="{ x: -200 }"
+                        :visibleOnce="{
+                            x: 0,
+                            transition: {
+                                duration: 900,
+                                type: 'spring',
+                                stiffness: '100',
+                            },
+                        }"
+                    >
                         <AnimatedImage
                             image_url="https://www.shutterstock.com/shutterstock/photos/2155227903/display_1500/stock-vector-pixel-game-win-screen-retro-bit-video-game-interface-with-you-win-text-computer-game-level-up-2155227903.jpg"
                         />
                     </div>
 
-                    <div class="col-span-1">
+                    <div
+                        class="col-span-1"
+                        v-motion
+                        :initial="{ y: -200, opacity: 0 }"
+                        :visibleOnce="{
+                            y: 0,
+                            opacity: 1,
+                            transition: {
+                                delay: 800,
+                                duration: 900,
+                                type: 'spring',
+                                stiffness: '100',
+                            },
+                        }"
+                    >
                         <AnimatedImage
                             image_url="https://cdn1.epicgames.com/spt-assets/7dbdd3c2a72e4cbaacc166a884031882/expeditions--a-mudrunner-game-rc1vn.jpg?h=270&quality=medium&resize=1&w=480"
                         />
                     </div>
 
-                    <div class="col-span-1">
+                    <div
+                        class="col-span-1"
+                        v-motion
+                        :initial="{ y: 200, opacity: 0 }"
+                        :visibleOnce="{
+                            y: 0,
+                            opacity: 1,
+                            transition: {
+                                delay: 800,
+                                duration: 900,
+                                type: 'spring',
+                                stiffness: '100',
+                            },
+                        }"
+                    >
                         <AnimatedImage
                             image_url="https://static0.gamerantimages.com/wordpress/wp-content/uploads/2020/07/greenmangaming-summer-sale.jpg"
                         />
                     </div>
 
-                    <div class="col-span-1">
+                    <div
+                        class="col-span-1"
+                        v-motion
+                        :initial="{ x: 200, opacity: 0 }"
+                        :visibleOnce="{
+                            opacity: 1,
+                            x: 0,
+                            transition: {
+                                delay: 1000,
+                                duration: 900,
+                                type: 'spring',
+                                stiffness: '100',
+                            },
+                        }"
+                    >
                         <AnimatedImage
                             image_url="https://assets-prd.ignimgs.com/2022/09/23/top25modernpcgames-blogroll-1663951042311.jpg"
                         />
                     </div>
                 </div>
             </div>
+        </section>
+
+        <!--Footer-->
+        <section>
+            <div class="h-64 bg-theme-black-darker"</div>
         </section>
     </MainSiteLayout>
 </template>
