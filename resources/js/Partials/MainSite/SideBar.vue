@@ -1,29 +1,18 @@
 <template>
     <div>
         <nav
-            v-motion
-            :initial="{ opacity: 0, x: 100 }"
-            :visibleOnce="{
-                opacity: 1,
-                x: 0,
-                transition: {
-                    type: 'spring',
-                    stiffness: '100',
-                    delay: 100,
-                },
-            }"
             :class="{
-                'w-1/2': toogleSideBar,
+                'w-full lg:w-1/2': toogleSideBar,
                 'w-0': !toogleSideBar,
             }"
-            class="fixed flex-shrink-0 duration-1000 overflow-hidden lg:-right-10 h-screen lg:-top-0 z-50"
+            class="fixed flex-shrink-0 duration-1000 overflow-hidden -right-10 h-screen -top-0 z-50"
         >
             <div class="flex flex-col bg-black h-screen space-y-20">
                 <div
                     class="flex flex-row mt-5 lg:mt-10 lg:pl-12 justify-between"
                 >
                     <h3
-                        class="text-theme-green-fluo flex flex-row items-center space-x-4 font-nunito"
+                        class="text-theme-green-fluo flex flex-row items-center space-x-4 font-nunito ml-10 lg:ml-0"
                     >
                         <span
                             class="uppercase font-bold text-xs tracking-widest"
@@ -32,11 +21,11 @@
                         </span>
                         <div class="w-24 h-[0.8px] bg-theme-green-fluo"></div>
                     </h3>
-                    <button class="lg:mr-14" @click="closeSideBar()">
+                    <button class="mr-14" @click="closeSideBar()">
                         <XIcon class="text-white" />
                     </button>
                 </div>
-                <ul class="space-y-8 lg:mx-10">
+                <ul class="space-y-8 mx-10">
                     <li
                         v-for="tab in tabs"
                         :key="tab.name"
