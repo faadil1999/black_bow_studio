@@ -16,7 +16,7 @@
                 'w-1/2': toogleSideBar,
                 'w-0': !toogleSideBar,
             }"
-            class="fixed flex-shrink-0 duration-1000 overflow-hidden lg:-right-10 h-screen lg:-top-0"
+            class="fixed flex-shrink-0 duration-1000 overflow-hidden lg:-right-10 h-screen lg:-top-0 z-50"
         >
             <div class="flex flex-col bg-black h-screen space-y-20">
                 <div
