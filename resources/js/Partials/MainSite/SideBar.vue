@@ -5,7 +5,7 @@
                 'w-full lg:w-1/2': toogleSideBar,
                 'w-0': !toogleSideBar,
             }"
-            class="fixed flex-shrink-0 duration-1000 overflow-hidden -right-10 h-screen -top-0 z-50"
+            class="fixed flex-shrink-0 duration-1000 -right-10 h-screen -top-0 z-50"
         >
             <div class="flex flex-col bg-black h-screen space-y-20">
                 <div
@@ -25,7 +25,25 @@
                         <XIcon class="text-white" />
                     </button>
                 </div>
-                <ul class="space-y-8 mx-10">
+                <ul
+                    class="space-y-8 mx-10"
+                    v-motion
+                    :initial="{ opacity: 0, x: 200 }"
+                    :visible="{
+                        opacity: 1,
+                        x: 0,
+                        transition: {
+                            opacity: {
+                                delay: 1000,
+                                duration: 500,
+                            },
+                            x: {
+                                delay: 500,
+                                duration: 1000,
+                            },
+                        },
+                    }"
+                >
                     <li
                         v-for="tab in tabs"
                         :key="tab.name"
