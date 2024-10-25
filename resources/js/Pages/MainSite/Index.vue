@@ -1,70 +1,74 @@
 <template>
     <Head> </Head>
     <MainSiteLayout class="">
-        <section
-            class="mx-auto text-center bg-gradient-to-b from-black to-white bg-opacity-25 text-opacity-20"
+        <!--Header-->
+        <header
+            class="relative flex items-center justify-center h-screen overflow-hidden"
         >
-            <div class="flex flex-col" data-aos="fade">
-                <div class="mx-auto mt-32">
-                    <h1
-                        class="text-[65px] lg:text-[100px] text-white font-extrabold font-montserrat"
-                    >
-                        The Black Bow studio
-                    </h1>
-                </div>
-
-                <div class="mx-auto">
-                    <h3
-                        class="text-[17px] lg:text-[37px] font-nunito opacity-50"
-                    >
-                        We build brands and beautiful experiences
-                    </h3>
-                </div>
-
-                <div
-                    class="w-25 mx-auto flex items-center flex-row lg:flex-col mt-10 space-x-4"
-                >
-                    <div
-                        class="bg-black rounded-full text-center p-1 w-[45px] h-[45px] lg:w-[90px] lg:h-[90px]"
-                    >
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                            stroke-width="0.0"
-                            stroke="currentColor"
-                            class="w-[25px] h-[25px] lg:w-[50px] lg:h-[50px] fill-theme-green-fluo mx-auto mt-2 lg:mt-4"
+            <div class="z-30 p-5 text-2xl text-white rounded-xl">
+                <div class="flex flex-col">
+                    <div class="mx-auto lg:mt-32">
+                        <h1
+                            class="text-[55px] lg:text-[100px] text-white font-extrabold font-montserrat space-y-2"
                         >
-                            <path
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                                d="M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.348a1.125 1.125 0 010 1.971l-11.54 6.347a1.125 1.125 0 01-1.667-.985V5.653z"
-                            />
-                        </svg>
+                            The Black Bow studio
+                        </h1>
                     </div>
-                    <div class="font-nunito font-bold">Watch video</div>
-                </div>
 
-                <div
-                    class="flex flex-col lg:flex-row mx-auto mt-5 space-y-4 lg:space-y-0"
-                >
-                    <button
-                        class="px-8 py-4 bg-theme-green-fluo text-white lg:w-[170px] text-center"
+                    <div class="mx-auto mt-5 lg:mt-16">
+                        <h3
+                            class="text-[17px] lg:text-[37px] font-nunito opacity-50"
+                        >
+                            We build brands and beautiful experiences
+                        </h3>
+                    </div>
+
+                    <div
+                        class="w-25 mx-auto flex items-center flex-row lg:flex-col mt-10 space-x-4"
                     >
-                        More about us
-                    </button>
-                    <button
-                        class="px-8 py-4 bg-gray-800 text-white lg:w-[170px]"
+                        <div
+                            class="bg-black rounded-full text-center p-1 w-[45px] h-[45px] lg:w-[90px] lg:h-[90px]"
+                        >
+                            <PlayIcon
+                                class="w-[25px] h-[25px] lg:w-[50px] lg:h-[50px] fill-theme-green-fluo mx-auto mt-2 lg:mt-4 stroke-none"
+                            ></PlayIcon>
+                        </div>
+                        <div class="font-nunito font-bold">Watch video</div>
+                    </div>
+
+                    <div
+                        class="flex flex-col lg:flex-row mx-auto mt-5 space-y-4 lg:space-y-0"
                     >
-                        Let's talk
-                    </button>
+                        <button
+                            class="px-8 py-4 bg-theme-green-fluo text-white lg:w-[270px] text-center"
+                        >
+                            More about us
+                        </button>
+                        <button
+                            class="px-8 py-4 bg-gray-800 text-white lg:w-[270px]"
+                        >
+                            Let's talk
+                        </button>
+                    </div>
                 </div>
             </div>
-        </section>
-
+            <!--Background video-->
+            <video
+                autoplay
+                loop
+                muted
+                class="absolute z-10 w-auto min-w-full min-h-full max-w-none"
+            >
+                <source
+                    src="https://assets.mixkit.co/videos/preview/mixkit-set-of-plateaus-seen-from-the-heights-in-a-sunset-26070-large.mp4"
+                    type="video/mp4"
+                />
+                Your browser does not support the video tag.
+            </video>
+        </header>
         <!--Who we are -->
         <section
-            class="mx-auto text-center lg:px-52 mt-10 w-full bg-theme-black-dark text-white pb-56"
+            class="mx-auto text-center lg:px-52 w-full bg-theme-black-dark text-white pb-56"
         >
             <div class="grid grid-cols-2 justify-items-center">
                 <div
@@ -334,7 +338,7 @@
 
         <!--Footer-->
         <section>
-            <div class="h-64 bg-theme-black-darker"</div>
+            <div></div>
         </section>
     </MainSiteLayout>
 </template>
@@ -345,4 +349,5 @@ import { Head } from "@inertiajs/vue3";
 import MainSiteLayout from "@/Layouts/MainSite/MainSiteLayout.vue";
 import SubtitleAndDetails from "@/Components/MainSite/SubtitleAndDetails.vue";
 import AnimatedImage from "@/Components/MainSite/AnimatedImage.vue";
+import { PlayIcon } from "lucide-vue-next";
 </script>
