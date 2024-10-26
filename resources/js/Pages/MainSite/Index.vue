@@ -1,71 +1,6 @@
 <template>
     <Head> </Head>
     <MainSiteLayout class="">
-        <!--Header-->
-        <header
-            class="relative flex items-center justify-center h-screen overflow-hidden"
-        >
-            <div class="z-30 p-5 text-2xl text-white rounded-xl">
-                <div class="flex flex-col">
-                    <div class="mx-auto lg:mt-32">
-                        <h1
-                            class="text-[55px] lg:text-[100px] text-white font-extrabold font-montserrat space-y-2"
-                        >
-                            The Black Bow studio
-                        </h1>
-                    </div>
-
-                    <div class="mx-auto mt-5 lg:mt-16">
-                        <h3
-                            class="text-[17px] lg:text-[37px] font-nunito opacity-50"
-                        >
-                            We build brands and beautiful experiences
-                        </h3>
-                    </div>
-
-                    <div
-                        class="w-25 mx-auto flex items-center flex-row lg:flex-col mt-10 space-x-4"
-                    >
-                        <div
-                            class="bg-black rounded-full text-center p-1 w-[45px] h-[45px] lg:w-[90px] lg:h-[90px]"
-                        >
-                            <PlayIcon
-                                class="w-[25px] h-[25px] lg:w-[50px] lg:h-[50px] fill-theme-green-fluo mx-auto mt-2 lg:mt-4 stroke-none"
-                            ></PlayIcon>
-                        </div>
-                        <div class="font-nunito font-bold">Watch video</div>
-                    </div>
-
-                    <div
-                        class="flex flex-col lg:flex-row mx-auto mt-5 space-y-4 lg:space-y-0"
-                    >
-                        <button
-                            class="px-8 py-4 bg-theme-green-fluo text-white lg:w-[270px] text-center"
-                        >
-                            More about us
-                        </button>
-                        <button
-                            class="px-8 py-4 bg-gray-800 text-white lg:w-[270px]"
-                        >
-                            Let's talk
-                        </button>
-                    </div>
-                </div>
-            </div>
-            <!--Background video-->
-            <video
-                autoplay
-                loop
-                muted
-                class="absolute z-10 w-auto min-w-full min-h-full max-w-none"
-            >
-                <source
-                    src="https://assets.mixkit.co/videos/preview/mixkit-set-of-plateaus-seen-from-the-heights-in-a-sunset-26070-large.mp4"
-                    type="video/mp4"
-                />
-                Your browser does not support the video tag.
-            </video>
-        </header>
         <!--Who we are -->
         <section
             class="mx-auto text-center lg:px-52 w-full bg-theme-black-dark text-white pb-56"
@@ -344,10 +279,12 @@
 </template>
 
 <script setup>
-import { onMounted, onUpdated } from "vue";
+import { onMounted, onUpdated, ref } from "vue";
 import { Head } from "@inertiajs/vue3";
 import MainSiteLayout from "@/Layouts/MainSite/MainSiteLayout.vue";
 import SubtitleAndDetails from "@/Components/MainSite/SubtitleAndDetails.vue";
 import AnimatedImage from "@/Components/MainSite/AnimatedImage.vue";
 import { PlayIcon } from "lucide-vue-next";
+import HeaderMainSite from "@/Components/MainSite/Header.vue";
+import { MenuIcon } from "lucide-vue-next";
 </script>

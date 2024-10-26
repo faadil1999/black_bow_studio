@@ -12,10 +12,11 @@ return [
     |
     */
 
-    'navigate_to'             => 'Naviguer vers',
+    'navigate_to'             => 'Navigate to',
     'header' => [
-        'sub_title' => 'Nous construisons des marques et de belles expériences',
-        'more_about'    => 'A propos',
-        'let_talk'      => "Parlons en",
+        'sub_title'     => 'We build brands and beautiful experiences',
+        'watch_video'   => 'Watch video',
+        'more_about'    => 'More about us',
+        'let_talk'      => "Let's talk",
     ]
 ];
