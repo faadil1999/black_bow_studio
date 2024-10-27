@@ -9,17 +9,7 @@
                     class="bg-theme-gray-extralight flex-auto relative w-full"
                 >
                     <flash-messages-list />
-                    <SideBar :showSideBar @closeSideBar="closeSideBar" />
-                    <HeaderMainSite>
-                        <template #side_bar>
-                            <button @click="toogleSideBar()">
-                                <MenuIcon
-                                    size="35"
-                                    class="hover:bg-slate-700 duration-1000 rounded-xl p-1"
-                                />
-                            </button>
-                        </template>
-                    </HeaderMainSite>
+
                     <slot />
                     <!-- <Footer /> -->
                 </main>

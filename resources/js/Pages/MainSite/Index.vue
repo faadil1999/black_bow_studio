@@ -1,6 +1,21 @@
 <template>
     <Head> </Head>
+    <!--Side bar-->
+    <SideBar :showSideBar @closeSideBar="closeSideBar" />
     <MainSiteLayout class="">
+        <!--Header-->
+        <HeaderMainSite :bg-video-url="bgVideoUrl">
+            <template #side_bar>
+                <button @click="toogleSideBar()">
+                    <MenuIcon
+                        size="35"
+                        class="hover:bg-slate-700 duration-1000 rounded-xl p-1"
+                    />
+                </button>
+            </template>
+        </HeaderMainSite>
+
+        <!--Body-->
         <!--Who we are -->
         <section
             class="mx-auto text-center lg:px-52 w-full bg-theme-black-dark text-white pb-56"
@@ -280,11 +295,27 @@
 
 <script setup>
 import { onMounted, onUpdated, ref } from "vue";
+import { MenuIcon } from "lucide-vue-next";
 import { Head } from "@inertiajs/vue3";
+import SideBar from "@/Partials/MainSite/SideBar.vue";
+import HeaderMainSite from "@/Components/MainSite/Header.vue";
 import MainSiteLayout from "@/Layouts/MainSite/MainSiteLayout.vue";
 import SubtitleAndDetails from "@/Components/MainSite/SubtitleAndDetails.vue";
 import AnimatedImage from "@/Components/MainSite/AnimatedImage.vue";
-import { PlayIcon } from "lucide-vue-next";
-import HeaderMainSite from "@/Components/MainSite/Header.vue";
-import { MenuIcon } from "lucide-vue-next";
+
+const props = defineProps({
+    bgVideoUrl: {
+        type: String,
+        default: "",
+    },
+});
+
+const showSideBar = ref(false);
+function toogleSideBar() {
+    showSideBar.value = !showSideBar.value;
+}
+
+function closeSideBar(event) {
+    showSideBar.value = event;
+}
 </script>
