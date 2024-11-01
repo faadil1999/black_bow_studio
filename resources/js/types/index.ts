@@ -1,3 +1,6 @@
-import { AnimationFadeFromLeftSettings } from "./animation";
+import {
+    AnimationFadeFromXSettings,
+    AnimationFadeFromYSettings,
+} from "./animation";
 
-export type { AnimationFadeFromLeftSettings };
+export type { AnimationFadeFromXSettings, AnimationFadeFromYSettings };

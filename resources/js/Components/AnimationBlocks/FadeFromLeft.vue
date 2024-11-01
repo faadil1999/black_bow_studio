@@ -9,8 +9,7 @@
 </template>
 <script setup lang="ts">
 import { computed } from "vue";
-import { AnimationFadeFromLeftSettings } from "@/types";
-import { FadeFromLeftAnimations } from "@/Animations/allAnimations";
+import { FadeFromXAnimations } from "@/Animations/allAnimations";
 
 const props = defineProps({
     delay: {
@@ -23,6 +22,5 @@ const props = defineProps({
     },
 });
 
-const animations: Map<String, AnimationFadeFromLeftSettings> = new Map();
-const selectedType = computed(() => FadeFromLeftAnimations.get(props.type));
+const selectedType = computed(() => FadeFromXAnimations.get(props.type));
 </script>

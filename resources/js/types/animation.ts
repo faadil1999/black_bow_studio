@@ -1,21 +1,44 @@
-type FadeFromLeftTransition = {
+type FadeFromXTransition = {
     type: string;
     stiffness: string;
     delay: number;
 };
 
-type AnimationFadeFromLeftInitial = {
+type AnimationFadeFromXInitial = {
     opacity: number;
     x: number;
 };
 
-type AnimationFadeFromLeftDetails = {
+type AnimationFadeFromXDetails = {
     opacity: number;
     x: number;
-    transition: FadeFromLeftTransition;
+    transition: FadeFromXTransition;
 };
 
-export type AnimationFadeFromLeftSettings = {
-    initial: AnimationFadeFromLeftInitial;
-    visibleOnce: AnimationFadeFromLeftDetails;
+type FadeFromYTransition = {
+    type: string;
+    stiffness: string;
+    delay: number;
+    duration: number;
+};
+
+type AnimationFadeFromYDetails = {
+    opacity: number;
+    y: number;
+    transition: FadeFromYTransition;
+};
+
+type AnimationFadeFromYInitial = {
+    opacity: number;
+    y: number;
+};
+
+export type AnimationFadeFromXSettings = {
+    initial: AnimationFadeFromXInitial;
+    visibleOnce: AnimationFadeFromXDetails;
+};
+
+export type AnimationFadeFromYSettings = {
+    initial: AnimationFadeFromYInitial;
+    visibleOnce: AnimationFadeFromYDetails;
 };

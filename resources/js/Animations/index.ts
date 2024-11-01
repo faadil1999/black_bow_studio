@@ -1,1 +1,1 @@
-import { FadeFromLeftAnimations } from "./allAnimations";
+import { FadeFromXAnimations } from "./allAnimations";

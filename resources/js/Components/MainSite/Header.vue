@@ -19,13 +19,13 @@
             <div class="py-10">
                 <div class="flex flex-col text-white">
                     <div class="mx-auto lg:mt-32 text-center">
-                        <AnimatedBlock>
+                        <FadeFromLeft>
                             <h1
                                 class="text-[55px] lg:text-[100px] font-extrabold font-montserrat space-y-2 leading-[1.2]"
                             >
                                 The Black Bow Studio
                             </h1>
-                        </AnimatedBlock>
+                        </FadeFromLeft>
                     </div>
 
                     <div class="mx-auto mt-5 lg:mt-16">
@@ -51,20 +51,23 @@
                         </div>
                     </div>
 
-                    <div
-                        class="flex flex-col lg:flex-row mx-auto mt-5 space-y-4 lg:space-y-0"
-                    >
-                        <button
-                            class="px-8 py-4 bg-theme-green-fluo text-white lg:w-[270px] text-center"
+                    <FadeFromBottom>
+                        <div
+                            class="flex flex-col lg:flex-row mx-auto mt-5 space-y-4 lg:space-y-0"
                         >
-                            {{ $t("main-site.header.more_about") }}
-                        </button>
-                        <button
-                            class="px-8 py-4 bg-gray-800 text-white lg:w-[270px]"
-                        >
-                            {{ $t("main-site.header.let_talk") }}
-                        </button>
-                    </div>
+                            <button
+                                class="px-8 py-4 bg-theme-green-fluo text-white lg:w-[270px] text-center"
+                            >
+                                {{ $t("main-site.header.more_about") }}
+                            </button>
+
+                            <button
+                                class="px-8 py-4 bg-gray-800 text-white lg:w-[270px]"
+                            >
+                                {{ $t("main-site.header.let_talk") }}
+                            </button>
+                        </div>
+                    </FadeFromBottom>
                 </div>
             </div>
         </div>
@@ -83,7 +86,8 @@
 <script setup>
 import { PlayIcon } from "lucide-vue-next";
 import { MenuIcon } from "lucide-vue-next";
-import AnimatedBlock from "../AnimatedBlock.vue";
+import FadeFromLeft from "../AnimationBlocks/FadeFromLeft.vue";
+import FadeFromBottom from "../AnimationBlocks/FadeFromBottom.vue";
 
 const props = defineProps({
     bgVideoUrl: {
