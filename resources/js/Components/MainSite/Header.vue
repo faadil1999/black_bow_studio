@@ -19,11 +19,13 @@
             <div class="py-10">
                 <div class="flex flex-col text-white">
                     <div class="mx-auto lg:mt-32 text-center">
-                        <h1
-                            class="text-[55px] lg:text-[100px] font-extrabold font-montserrat space-y-2 leading-[1.2]"
-                        >
-                            The Black Bow Studio
-                        </h1>
+                        <AnimatedBlock>
+                            <h1
+                                class="text-[55px] lg:text-[100px] font-extrabold font-montserrat space-y-2 leading-[1.2]"
+                            >
+                                The Black Bow Studio
+                            </h1>
+                        </AnimatedBlock>
                     </div>
 
                     <div class="mx-auto mt-5 lg:mt-16">
@@ -81,6 +83,7 @@
 <script setup>
 import { PlayIcon } from "lucide-vue-next";
 import { MenuIcon } from "lucide-vue-next";
+import AnimatedBlock from "../AnimatedBlock.vue";
 
 const props = defineProps({
     bgVideoUrl: {
