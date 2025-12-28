@@ -14,7 +14,7 @@
                 </button>
             </template>
         </HeaderMainSite>
-
+        <HorrorLampHero />
         <!--Body-->
         <!--Who we are -->
         <section
@@ -302,6 +302,7 @@ import HeaderMainSite from "@/Components/MainSite/Header.vue";
 import MainSiteLayout from "@/Layouts/MainSite/MainSiteLayout.vue";
 import SubtitleAndDetails from "@/Components/MainSite/SubtitleAndDetails.vue";
 import AnimatedImage from "@/Components/MainSite/AnimatedImage.vue";
+import HorrorLampHero from "@/Components/StylishComponent/HorrorLampHero.vue";
 
 const props = defineProps({
     bgVideoUrl: {

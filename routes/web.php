@@ -17,21 +17,21 @@ use Inertia\Inertia;
 |
 */
 
-Route::get('/', function () {
-    return Inertia::render('Welcome', [
-        'canLogin' => Route::has('login'),
-        'canRegister' => Route::has('register'),
-        'laravelVersion' => Application::VERSION,
-        'phpVersion' => PHP_VERSION,
-    ]);
-});
+// Route::get('/', function () {
+//     return Inertia::render('Welcome', [
+//         'canLogin' => Route::has('login'),
+//         'canRegister' => Route::has('register'),
+//         'laravelVersion' => Application::VERSION,
+//         'phpVersion' => PHP_VERSION,
+//     ]);
+// });
 
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::prefix('/main-site')->name('main-site.')->controller(MainSiteController::class)->group(function() {
-    Route::get('index', 'index')->name('index');
+Route::prefix('/')->name('main-site.')->controller(MainSiteController::class)->group(function() {
+    Route::get('/', 'index')->name('index');
 });
 
 Route::middleware('auth')->group(function () {
