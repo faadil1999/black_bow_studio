@@ -15,6 +15,8 @@
             </template>
         </HeaderMainSite>
         <HorrorLampHero />
+        <HorrorLampCyberPunk/>
+        <HorrorBase44/>
         <!--Body-->
         <!--Who we are -->
         <section
@@ -303,6 +305,8 @@ import MainSiteLayout from "@/Layouts/MainSite/MainSiteLayout.vue";
 import SubtitleAndDetails from "@/Components/MainSite/SubtitleAndDetails.vue";
 import AnimatedImage from "@/Components/MainSite/AnimatedImage.vue";
 import HorrorLampHero from "@/Components/StylishComponent/HorrorLampHero.vue";
+import HorrorLampCyberPunk from "@/Components/StylishComponent/HorrorLampCyberPunk.vue";
+import HorrorBase44 from "@/Components/StylishComponent/HorrorBase44.vue";
 
 const props = defineProps({
     bgVideoUrl: {

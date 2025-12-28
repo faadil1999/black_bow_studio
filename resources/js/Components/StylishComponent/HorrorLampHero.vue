@@ -31,50 +31,56 @@
         }"
       ></div>
 
-      <!-- Corps de la lampe -->
+      <!-- Corps de la lampe (forme dôme industriel) -->
       <div class="lamp-body">
-        <div 
-          class="lamp-interior"
-          :style="{
-            background: isLightOn && !flicker 
-              ? 'radial-gradient(circle at center, rgba(255, 220, 150, 0.9), rgba(255, 150, 50, 0.6), transparent)'
-              : 'radial-gradient(circle at center, rgba(100, 100, 100, 0.3), transparent)',
-            boxShadow: isLightOn && !flicker 
-              ? 'inset 0 0 30px rgba(255, 200, 100, 0.8)'
-              : 'none'
-          }"
-        ></div>
+        <!-- Haut de la lampe (culot) -->
+        <div class="lamp-socket"></div>
+        
+        <!-- Dôme de la lampe -->
+        <div class="lamp-dome">
+          <div 
+            class="lamp-interior"
+            :style="{
+              background: isLightOn && !flicker 
+                ? 'radial-gradient(circle at center, rgba(255, 220, 150, 0.9), rgba(255, 150, 50, 0.6), transparent)'
+                : 'radial-gradient(circle at center, rgba(100, 100, 100, 0.3), transparent)',
+              boxShadow: isLightOn && !flicker 
+                ? 'inset 0 0 30px rgba(255, 200, 100, 0.8)'
+                : 'none'
+            }"
+          ></div>
 
-        <!-- Ampoule -->
-        <div 
-          class="bulb"
-          :style="{
-            background: isLightOn && !flicker
-              ? 'radial-gradient(circle, rgba(255, 240, 200, 1), rgba(255, 200, 100, 0.8))'
-              : 'radial-gradient(circle, rgba(80, 80, 80, 0.5), rgba(40, 40, 40, 0.8))',
-            boxShadow: isLightOn && !flicker
-              ? '0 0 20px rgba(255, 200, 100, 0.8), 0 0 40px rgba(255, 150, 50, 0.4)'
-              : 'none'
-          }"
-        ></div>
+          <!-- Ampoule visible -->
+          <div 
+            class="bulb"
+            :style="{
+              background: isLightOn && !flicker
+                ? 'radial-gradient(circle, rgba(255, 240, 200, 1), rgba(255, 200, 100, 0.8))'
+                : 'radial-gradient(circle, rgba(80, 80, 80, 0.5), rgba(40, 40, 40, 0.8))',
+              boxShadow: isLightOn && !flicker
+                ? '0 0 20px rgba(255, 200, 100, 0.8), 0 0 40px rgba(255, 150, 50, 0.4)'
+                : 'none'
+            }"
+          ></div>
+
+          <!-- Reflet sur le dôme -->
+          <div class="lamp-highlight"></div>
+        </div>
       </div>
     </div>
 
-    <!-- Blob au sol -->
+    <!-- Blob au sol (ombre projetée) -->
     <div 
       class="blob-container"
       :style="{ transform: `translateX(-50%) scale(${blobScale})` }"
     >
       <div 
-        class="blob"
+        class="blob-shadow"
         :style="{
-          background: isLightOn && !flicker
-            ? 'radial-gradient(ellipse at center, rgba(139, 0, 0, 0.8), rgba(80, 0, 0, 0.6), rgba(40, 0, 0, 0.4), transparent)'
-            : 'radial-gradient(ellipse at center, rgba(60, 0, 0, 0.9), rgba(30, 0, 0, 0.7), rgba(15, 0, 0, 0.5), transparent)'
+          opacity: isLightOn && !flicker ? 0.9 : 0.3,
+          filter: isLightOn && !flicker ? 'blur(20px)' : 'blur(10px)'
         }"
-      >
-        <div class="blob-detail"></div>
-      </div>
+      ></div>
     </div>
 
     <!-- Instructions -->
@@ -118,7 +124,7 @@ export default {
     },
     startBlobAnimation() {
       this.blobInterval = setInterval(() => {
-        this.blobScale = 0.95 + Math.random() * 0.1;
+        this.blobScale = 0.98 + Math.random() * 0.04;
       }, 2000);
     }
   },
@@ -139,7 +145,7 @@ export default {
   width: 100%;
   height: 100vh;
   min-height: 500px;
-  background: black;
+  background: #2a2a2a;
   overflow: hidden;
 }
 
@@ -203,98 +209,157 @@ export default {
 
 @keyframes swing {
   0%, 100% { 
-    transform: translateX(-50%) rotate(-4deg);
+    transform: translateX(-50%) rotate(-8deg);
   }
   50% { 
-    transform: translateX(-50%) rotate(4deg);
+    transform: translateX(-50%) rotate(8deg);
   }
 }
 
 .cable {
-  width: clamp(2px, 0.5vw, 4px);
-  height: clamp(100px, 25vh, 260px);
+  width: clamp(2px, 0.5vw, 3px);
+  height: clamp(120px, 25vh, 200px);
   margin: 0 auto;
-  background: linear-gradient(to bottom, #27272a, #18181b);
+  background: linear-gradient(to bottom, #2a2a2a, #1a1a1a);
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
 }
 
 .light-glow {
   position: absolute;
-  top: clamp(100px, 20vh, 160px);
+  top: clamp(120px, 25vh, 200px);
   left: 50%;
   transform: translateX(-50%);
-  width: clamp(200px, 50vw, 384px);
-  height: clamp(200px, 50vw, 384px);
+  width: clamp(300px, 60vw, 500px);
+  height: clamp(300px, 60vw, 500px);
   border-radius: 50%;
   pointer-events: none;
   transition: opacity 0.3s ease;
-  filter: blur(40px);
+  filter: blur(60px);
 }
 
 .lamp-body {
   position: relative;
   left: 50%;
   transform: translateX(-50%);
-  width: clamp(80px, 15vw, 128px);
-  height: clamp(60px, 12vw, 96px);
-  background: linear-gradient(to bottom, #18181b, #27272a, #3f3f46);
-  border-radius: 0 0 50% 50%;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.9);
-  border-top: clamp(2px, 0.5vw, 4px) solid #18181b;
+  width: clamp(100px, 18vw, 180px);
+}
+
+.lamp-socket {
+  width: clamp(35px, 6vw, 60px);
+  height: clamp(30px, 5vw, 50px);
+  background: linear-gradient(to bottom, #2a2a2a 0%, #1a1a1a 60%, #2a2a2a 100%);
+  margin: 0 auto;
+  border-radius: 8px 8px 0 0;
+  box-shadow: 
+    0 2px 4px rgba(0, 0, 0, 0.5),
+    inset 0 2px 4px rgba(255, 255, 255, 0.1);
+  position: relative;
+}
+
+.lamp-socket::before {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  height: 8px;
+  background: #1a1a1a;
+  border-radius: 50%;
+}
+
+.lamp-dome {
+  position: relative;
+  width: 100%;
+  height: clamp(100px, 18vw, 180px);
+  background: linear-gradient(to bottom, #4a4a4a 0%, #3a3a3a 30%, #2a2a2a 70%, #1a1a1a 100%);
+  border-radius: 50% 50% 48% 48% / 55% 55% 45% 45%;
+  box-shadow: 
+    0 15px 50px rgba(0, 0, 0, 0.9),
+    inset 0 -8px 20px rgba(0, 0, 0, 0.6),
+    inset 0 2px 8px rgba(255, 255, 255, 0.1);
+  overflow: hidden;
+  border: 2px solid #1a1a1a;
 }
 
 .lamp-interior {
   position: absolute;
   inset: 0;
-  border-radius: 0 0 50% 50%;
+  border-radius: 50% 50% 48% 48% / 55% 55% 45% 45%;
   transition: all 0.3s ease;
+}
+
+/* Bordure intérieure éclairée */
+.lamp-dome::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 98%;
+  height: 15px;
+  background: linear-gradient(to top, 
+    rgba(200, 200, 200, 0.8) 0%,
+    rgba(150, 150, 150, 0.4) 50%,
+    transparent 100%);
+  border-radius: 0 0 50% 50%;
 }
 
 .bulb {
   position: absolute;
-  top: clamp(4px, 1vw, 8px);
+  top: 50%;
   left: 50%;
-  transform: translateX(-50%);
-  width: clamp(25px, 5vw, 40px);
-  height: clamp(35px, 7vw, 56px);
+  transform: translate(-50%, -50%);
+  width: clamp(35px, 7vw, 60px);
+  height: clamp(35px, 7vw, 60px);
   border-radius: 50%;
   transition: all 0.2s ease;
+  z-index: 2;
+}
+
+.lamp-highlight {
+  position: absolute;
+  top: 20%;
+  left: 20%;
+  width: 35%;
+  height: 40%;
+  background: linear-gradient(135deg, 
+    rgba(255, 255, 255, 0.4) 0%, 
+    rgba(255, 255, 255, 0.2) 40%,
+    transparent 100%);
+  border-radius: 60% 40% 50% 50% / 60% 50% 50% 40%;
+  filter: blur(4px);
+  pointer-events: none;
 }
 
 .blob-container {
   position: absolute;
-  bottom: clamp(40px, 10vh, 80px);
+  bottom: clamp(40px, 8vh, 60px);
   left: 50%;
   transform: translateX(-50%);
   pointer-events: none;
   transition: transform 2s ease-in-out;
 }
 
-.blob {
-  position: relative;
-  width: clamp(150px, 35vw, 256px);
-  height: clamp(75px, 17vw, 128px);
+.blob-shadow {
+  width: clamp(120px, 25vw, 220px);
+  height: clamp(20px, 4vw, 35px);
+  background: radial-gradient(ellipse at center, 
+    rgba(0, 0, 0, 0.8) 0%, 
+    rgba(0, 0, 0, 0.4) 50%, 
+    transparent 100%);
   border-radius: 50%;
-  filter: blur(8px);
   transition: all 0.3s ease;
-  animation: pulse 4s ease-in-out infinite;
+  animation: shadowPulse 4s ease-in-out infinite;
 }
 
-@keyframes pulse {
-  0%, 100% { opacity: 0.8; }
-  50% { opacity: 1; }
-}
-
-.blob-detail {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: clamp(110px, 25vw, 192px);
-  height: clamp(55px, 13vw, 96px);
-  background: radial-gradient(ellipse at center, rgba(100, 0, 0, 0.6), transparent);
-  filter: blur(4px);
-  border-radius: 50%;
+@keyframes shadowPulse {
+  0%, 100% { 
+    transform: scaleX(1);
+  }
+  50% { 
+    transform: scaleX(1.05);
+  }
 }
 
 .instructions {
@@ -311,14 +376,23 @@ export default {
   white-space: nowrap;
 }
 
+@keyframes pulse {
+  0%, 100% { 
+    opacity: 0.6;
+  }
+  50% { 
+    opacity: 1;
+  }
+}
+
 /* Responsive adjustments */
 @media (max-width: 768px) {
   @keyframes swing {
     0%, 100% { 
-      transform: translateX(-50%) rotate(-3deg);
+      transform: translateX(-50%) rotate(-5deg);
     }
     50% { 
-      transform: translateX(-50%) rotate(3deg);
+      transform: translateX(-50%) rotate(5deg);
     }
   }
 }
@@ -330,10 +404,10 @@ export default {
   
   @keyframes swing {
     0%, 100% { 
-      transform: translateX(-50%) rotate(-2deg);
+      transform: translateX(-50%) rotate(-3deg);
     }
     50% { 
-      transform: translateX(-50%) rotate(2deg);
+      transform: translateX(-50%) rotate(3deg);
     }
   }
 }
